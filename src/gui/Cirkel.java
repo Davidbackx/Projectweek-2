@@ -1,5 +1,7 @@
 package gui;
-import javafx.application.*;
-import javafx.stage.*;
-public class cirkel {
+
+public class Cirkel {
+    private Point middelPunt;
+    private int radius
+
 }
