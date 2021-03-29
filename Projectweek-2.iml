@@ -8,6 +8,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
+    <orderEntry type="library" name="lib" level="project" />
+=======
+>>>>>>> 42dc8c65c753227364756d65a383bcb51944f74a
     <orderEntry type="module-library">
       <library name="JUnit4">
         <CLASSES>
