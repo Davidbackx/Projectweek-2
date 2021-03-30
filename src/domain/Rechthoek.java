@@ -26,6 +26,10 @@ public class Rechthoek {
     public Punt getLinkerBovenhoek() {
         return linkerBovenHoek;
     }
+    public String getOmhullende(){
+        Omhullende omhullende = new Omhullende(linkerBovenHoek,breedte,hoogte);
+        return toString() +"\n"+ omhullende.toString();
+    }
     @Override
     public boolean equals(Object andereRechthoek){
         if (andereRechthoek == null) throw new DomainException();

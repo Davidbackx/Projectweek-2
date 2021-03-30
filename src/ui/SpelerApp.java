@@ -1,4 +1,4 @@
-package gui;
+package ui;
 
 import domain.DomainException;
 import domain.Speler;
