@@ -6,9 +6,9 @@ public class Omhullende {
     private Punt positieLinksBoven;
 
     public Omhullende(Punt positieLinksBoven,int breedte,int hoogte){
-    if(breedte < 0) throw new DomainException(/*"Breedte mag niet negatieg zijn"*/);
-    if (hoogte < 0) throw new DomainException();
-    if (positieLinksBoven == null) throw new DomainException();
+    if(breedte < 0) throw new DomainException("Breedte mag niet negatieg zijn");
+    if (hoogte < 0) throw new DomainException("hoogte mag niet negatief zijn");
+    if (positieLinksBoven == null) throw new DomainException("positie mag niet leeg zijn");
     this.hoogte = hoogte;
     this.breedte = breedte;
     this.positieLinksBoven = positieLinksBoven;
