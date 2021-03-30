@@ -6,11 +6,11 @@ public class LijnStuk {
 
     public LijnStuk(Punt startPunt, Punt eindPunt) {
         if (startPunt == null) {
-            throw new DomainException();
+            throw new DomainException("izan");
         }
         this.startPunt = startPunt;
         if (eindPunt == null) {
-            throw new DomainException();
+            throw new DomainException("izan");
         }
         this.eindPunt = eindPunt;
     }
