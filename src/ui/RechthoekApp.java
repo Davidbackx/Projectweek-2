@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 
 public class RechthoekApp extends Application {
     public RechthoekApp(GridPane root) {
+
     }
 
     @Override
