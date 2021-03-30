@@ -26,7 +26,7 @@ public class Rechthoek {
     public Punt getLinkerBovenhoek() {
         return linkerBovenHoek;
     }
-    public String getOmhullende(){
+    public String getOmhullende(){// getOmhullende geeft Omhullende terug !!
         Omhullende omhullende = new Omhullende(linkerBovenHoek,breedte,hoogte);
         return toString() +"\n"+ omhullende.toString();
     }
