@@ -1,11 +1,12 @@
 package domain;
 
-import domain.DomainException;
-import domain.Punt;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 import java.util.Objects;
 
-public class Cirkel {
+public class Cirkel extends Vorm implements Drawable{
     private Punt middelPunt;
     private int radius;
 
@@ -51,10 +52,23 @@ public class Cirkel {
     }
 
     @Override
+    public Omhullende getOmhullende() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Cirkel{" +
                 "middelPunt=" + middelPunt +
                 ", radius=" + radius +
                 '}';
+    }
+
+    @Override
+    public void teken(Pane root) {
+        Circle c = new Circle(this.getMiddelPunt().getX(), this.getMiddelPunt().getY(), this.getRadius());
+        c.setFill(this.getKleur());
+        c.setStroke(Color.BLACK);
+        root.getChildren().addAll(c);
     }
 }
