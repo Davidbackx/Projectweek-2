@@ -30,7 +30,7 @@ public class Omhullende {
     public boolean equals(Object andereOmhullende) {
         if(andereOmhullende instanceof Omhullende){
             Omhullende omhullende = (Omhullende) andereOmhullende;
-            if (omhullende.positieLinksBoven == this.positieLinksBoven
+            if (omhullende.positieLinksBoven == this.positieLinksBoven // vergelijken punt-objecten door .equals
                 && omhullende.breedte == this.breedte && omhullende.hoogte == this.hoogte){
                 return true;
             }
