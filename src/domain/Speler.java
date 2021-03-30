@@ -1,6 +1,5 @@
 package domain;
 
-import com.sun.prism.paint.LinearGradient;
 import org.w3c.dom.DOMException;
 
 import java.io.ObjectInputStream;
@@ -10,7 +9,7 @@ public class Speler {
     private int score;
 
     public Speler(String naam) throws DomainException {
-        if (naam == null || naam.trim().isEmpty()) throw new DomainException();
+        if (naam == null || naam.trim().isEmpty()) throw new DomainException("izan");
         this.naam = naam;
         this.score = 0;
     }
@@ -27,7 +26,7 @@ public class Speler {
     public void addToScore(int score) {
         if ((score < 0)){
             if(Math.abs(score) > this.score){
-               throw new DomainException();
+               throw new DomainException("izan");
             }
         }
         this.score += score;
@@ -35,7 +34,7 @@ public class Speler {
     @Override
     public boolean equals(Object andereSpeler) {
         if (andereSpeler == null){
-            throw new DomainException();
+            throw new DomainException("izan");
         }
         if(andereSpeler instanceof Speler){
             Speler speler = (Speler) andereSpeler;
