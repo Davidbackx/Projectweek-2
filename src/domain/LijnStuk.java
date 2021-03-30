@@ -23,11 +23,12 @@ public class LijnStuk {
         return eindPunt;
     }
 
-    public void setStartPunt(Punt startPunt) {
+    public void setStartPunt(Punt startPunt) {// geen setters in UML
+      
         this.startPunt = startPunt;
     }
 
-    public void setEindPunt(Punt eindPunt) {
+    public void setEindPunt(Punt eindPunt) {// geen setters in UML 
         this.eindPunt = eindPunt;
     }
 
