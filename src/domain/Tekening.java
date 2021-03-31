@@ -30,7 +30,11 @@ public class Tekening extends Vorm implements Drawable{
     }
 
     public void voegToe(Vorm v) {
+        Omhullende omhullende = new Omhullende(new Punt(MIN_X,MAX_Y),MIN_X+MAX_X,MIN_Y+MAX_Y);
         if (v == null) {
+            throw new DomainException();
+        }
+        if(v.getOmhullende().getMinX() > omhullende.getMinX()){
             throw new DomainException();
         }
         vormen.add(v);

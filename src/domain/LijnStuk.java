@@ -50,7 +50,9 @@ public class LijnStuk extends Vorm implements Drawable{
 
     @Override
     public Omhullende getOmhullende() {
-        return null;
+        int breedte = startPunt.getX()+eindPunt.getX();
+        int hoogte = startPunt.getY()+eindPunt.getY();
+        return new Omhullende(startPunt,breedte,hoogte);
     }
 
     public String toString() {

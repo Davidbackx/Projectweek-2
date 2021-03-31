@@ -33,7 +33,7 @@ public class Rechthoek extends Vorm implements Drawable {
 
     @Override
     public Omhullende getOmhullende() {
-        return null;
+        return new Omhullende(linkerBovenHoek,breedte,hoogte);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Rechthoek extends Vorm implements Drawable {
 
     @Override
     public boolean equals(Object andereRechthoek){
-        if (andereRechthoek == null) throw new DomainException();
+        if (andereRechthoek == null) return false;
         if (andereRechthoek instanceof Rechthoek){
             Rechthoek rechthoek = (Rechthoek) andereRechthoek;
             if(linkerBovenHoek.equals(rechthoek.linkerBovenHoek) && this.hoogte == rechthoek.hoogte && this.breedte == rechthoek.breedte){

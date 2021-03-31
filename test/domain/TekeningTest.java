@@ -14,6 +14,7 @@ public class TekeningTest {
     private Vorm raambalk1;
     private Vorm raambalk2;
     private Vorm schouwNietInTekening;
+    private Omhullende omhullende;
 
     @Before
     public void setUp() {
@@ -25,6 +26,7 @@ public class TekeningTest {
         raambalk1 = new LijnStuk(new Punt(210, 250), new Punt(290, 250));
         raambalk2 = new LijnStuk(new Punt(250, 220), new Punt(250, 280));
         schouwNietInTekening = new Rechthoek(new Punt(150, 150), 20,40);
+        omhullende = new Omhullende(new Punt(200,150),150,200);
     }
 
     @Test
@@ -103,6 +105,13 @@ public class TekeningTest {
     //public void getVorm_moet_exception_gooien_als_parameter_niet_in_de_lijst_voorkomt(){
 
     //}
+    @Test (expected = DomainException.class)
+    public void voegToe_gooit_exception_wanneer_minX_van_omhullende_kleiner_is_dan_minX_van_tekening(){
+        Tekening tekening = createHuisMetSchouw();
+        tekening.voegToe(gebouw);
+        assertTrue(gebouw.getOmhullende().getMinX() > omhullende.getMinX());
+        assertFalse(raambalk1.getOmhullende().getMinX() > omhullende.getMinX());
+    }
 
 
     public Tekening createHuisMetSchouw() {
