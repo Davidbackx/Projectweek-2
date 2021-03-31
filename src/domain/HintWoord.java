@@ -16,12 +16,11 @@ public class HintWoord {
     public boolean raad(char letter){
         boolean ok = false;
         for (int i = 0; i < hintwoord.length ; i++) {
-            ok = hintwoord[i].raad(letter);
+            ok = hintwoord[i].raad(letter) || ok;         // [t, true] [e,false] [s, false] [t,true]
         }
         return ok;
     }
     public boolean isGeraden(){
-
         for (int i = 0; i < hintwoord.length  ; i++) {
             if(!hintwoord[i].isGeraden()){
                 return false;
@@ -30,7 +29,11 @@ public class HintWoord {
         return true;
     }
     public String getWoord(){
-        return "";
+        StringBuilder woord = new StringBuilder();
+        for (int i = 0; i < hintwoord.length ; i++) {
+                woord.append(hintwoord[i].getLetter());
+        }
+        return woord.toString();
     }
     @Override
     public String toString(){
@@ -42,6 +45,6 @@ public class HintWoord {
                resultaat += "_ ";
            }
        }
-        return resultaat;
+        return resultaat.substring(0,resultaat.length()-1);
     }
 }
