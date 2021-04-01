@@ -9,8 +9,12 @@ public class CirkelTestTest {
         private Punt punt2 = new Punt(8, 2);
         private Punt punt3 = new Punt(5, 5);
         private Punt punt4 = new Punt(0, 0);
+        private Punt zelfdeAlsPunt1 = new Punt(5, 3);
+        private Punt zelfdeAlsPunt2 = new Punt(8, 2);
 
-        private Cirkel cirkel1 = new Cirkel(punt1, 5);
+
+
+    private Cirkel cirkel1 = new Cirkel(punt1, 5);
         private Cirkel zelfdeAlsCirkel1 = new Cirkel(punt4, 5);
         private Cirkel cirkel2 = new Cirkel(punt3, -5);
 
@@ -32,6 +36,14 @@ public class CirkelTestTest {
     public void Cirkel_Moet_exception_gooien_als_radius_negatief()  {
         new Cirkel(punt1, -5);
     }
+
+    @Test
+    public void equals_moet_true_teruggeven_als_begin_en_eindpunt_gelijk_zijn(){
+        Cirkel cirkel = new Cirkel(punt1, 8);
+        Cirkel zelfdeCirkel = new Cirkel(zelfdeAlsPunt1,8);
+        assertTrue(cirkel.equals(zelfdeCirkel));
+    }
+
 
 }
 

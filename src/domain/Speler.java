@@ -9,7 +9,7 @@ public class Speler {
     private int score;
 
     public Speler(String naam) throws DomainException {
-        if (naam == null || naam.trim().isEmpty()) throw new DomainException("izan");
+        if (naam == null || naam.trim().isEmpty()) throw new DomainException("Verkeerde invoer");
         this.naam = naam;
         this.score = 0;
     }
@@ -26,7 +26,7 @@ public class Speler {
     public void addToScore(int score) {
         if ((score < 0)){
             if(Math.abs(score) > this.score){
-               throw new DomainException("izan");
+               throw new DomainException("Verkeerde invoer");
             }
         }
         this.score += score;
@@ -34,7 +34,7 @@ public class Speler {
     @Override
     public boolean equals(Object andereSpeler) {
         if (andereSpeler == null){
-            throw new DomainException("izan");
+            throw new DomainException("Verkeerde invoer");
         }
         if(andereSpeler instanceof Speler){
             Speler speler = (Speler) andereSpeler;
