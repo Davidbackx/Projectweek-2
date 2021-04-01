@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Tekening extends Vorm implements Drawable{
     private String naam;
-    private ArrayList<Vorm> vormen;
+    protected ArrayList<Vorm> vormen;
     public static final int MIN_X = 0;
     public static final int MAX_X = 399;
     public static final int MIN_Y = 0;
@@ -14,8 +14,8 @@ public class Tekening extends Vorm implements Drawable{
 
 
     public Tekening(String naam) {
-        if (!isValidNaam(naam)) {
-            throw new DomainException();
+        if (naam == null || naam.trim().isEmpty()) {
+            throw new IllegalArgumentException();
         }
         this.naam = naam;
         this.vormen = new ArrayList<>();
@@ -30,20 +30,21 @@ public class Tekening extends Vorm implements Drawable{
     }
 
     public void voegToe(Vorm v) {
-        Omhullende omhullende = new Omhullende(new Punt(MIN_X,MAX_Y),MIN_X+MAX_X,MIN_Y+MAX_Y);
+        Omhullende omhullende = new Omhullende(new Punt(MIN_X,MIN_Y),MAX_X - MIN_X,MAX_Y - MIN_Y) ;
         if (v == null) {
             throw new DomainException();
         }
-        if(v.getOmhullende().getMinX() > omhullende.getMinX()){
+        if(v.getOmhullende().getMinX() < omhullende.getMinX()){
             throw new DomainException();
         }
         vormen.add(v);
     }
 
     public void verwijder(Vorm v){
-        if ( v == null){
+        if ( v == null || !vormen.contains(v)){
             throw new DomainException();
-        } vormen.remove(v);
+        }
+        vormen.remove(v);
 
     }
 
@@ -59,27 +60,41 @@ public class Tekening extends Vorm implements Drawable{
     }
 
     public Vorm getVorm(int i){
+        if (i < 0 || i > vormen.size()) {
+            throw new DomainException();
+        }
         return vormen.get(i);
     }
 
     @Override
     public boolean equals(Object o){
+        if (o == null) {
+            return false;
+        }
         if(o instanceof Tekening) {
             Tekening t = (Tekening)o;
-            if(this.getNaam().equals(t.getNaam())){
-                return true;
+            if(this.getAantalVormen() != (t.getAantalVormen())) {
+                return false;
+            }
+
+            for (int i = 0; i < vormen.size(); i++) {
+                for (int j = 0; j < t.getAantalVormen(); j++) {
+                    if (vormen.get(i) != t.getVorm(j)) {
+                        return false;
+                    }
+                }
             }
         }
-        return false;
+        return true;
     }
 
     @Override
     public void teken(Pane root) {
-        for (Vorm vorm:
-             vormen) {
-            vorm.teken(root);
+        for (Vorm vorm: vormen) {
+            if (vorm.isZichtbaar()) {
+                vorm.teken(root);
+            }
         }
-
     }
 
     @Override

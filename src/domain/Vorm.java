@@ -6,6 +6,7 @@ import ui.UiException;
 
 public abstract class Vorm implements Drawable{
     private Color kleur = Color.WHITE;
+    private boolean isZichtbaar;
 
     public Color getKleur() {
         return kleur;

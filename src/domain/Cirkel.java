@@ -53,7 +53,7 @@ public class Cirkel extends Vorm implements Drawable{
 
     @Override
     public Omhullende getOmhullende() {
-        return null;
+        return new Omhullende(new Punt(this.middelPunt.getX()-this.radius,this.middelPunt.getY() - this.radius),this.radius*2,this.radius*2);
     }
 
     @Override

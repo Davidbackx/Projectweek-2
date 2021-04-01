@@ -19,7 +19,7 @@ public class TekeningTest {
     @Before
     public void setUp() {
         gebouw = new Rechthoek(new Punt(100, 200), 200, 180);
-//        dak = new Driehoek(new Punt(100, 200), new Punt(300, 200), new Punt(200, 100));
+        dak = new Driehoek(new Punt(100, 200), new Punt(300, 200), new Punt(200, 100));
         deur = new Rechthoek(new Punt(130, 280), 50,100);
         raam = new Rechthoek(new Punt(210, 220), 80, 60);
         deurknop = new Cirkel(new Punt(170, 320), 2);
@@ -108,11 +108,33 @@ public class TekeningTest {
     @Test (expected = DomainException.class)
     public void voegToe_gooit_exception_wanneer_minX_van_omhullende_kleiner_is_dan_minX_van_tekening(){
         Tekening tekening = createHuisMetSchouw();
-        tekening.voegToe(gebouw);
-        assertTrue(gebouw.getOmhullende().getMinX() > omhullende.getMinX());
-        assertFalse(raambalk1.getOmhullende().getMinX() > omhullende.getMinX());
+        tekening.voegToe(new Cirkel(new Punt(10,10),15));
+
     }
 
+    @Test (expected = DomainException.class)
+    public void getVorm_gooit_excepion_als_i_negatief_is() {
+        Tekening tekening = createHuisMetSchouw();
+        tekening.getVorm(-5);
+    }
+
+    @Test (expected = DomainException.class)
+    public void getVorm_gooit_excepion_als_i_groter_is_dan_size() {
+        Tekening tekening = createHuisMetSchouw();
+        tekening.getVorm(10);
+    }
+
+    @Test (expected = DomainException.class)
+    public void verwijder_gooit_exception_als_vorm_null_is() {
+        Tekening tekening = createHuisMetSchouw();
+        tekening.verwijder(null);
+    }
+
+    @Test (expected = DomainException.class)
+    public void verwijder_gooit_exception_als_vorm_niet_aanwezig_is() {
+        Tekening tekening = createHuisMetSchouwZonderDeur();
+        tekening.verwijder(deur);
+    }
 
     public Tekening createHuisMetSchouw() {
         Tekening huisMetSchouw = new Tekening("huisMetSchouw");
