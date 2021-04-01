@@ -1,6 +1,7 @@
-package gui;
+package ui;
 
 import domain.DomainException;
+import gui.SpelerApp;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;

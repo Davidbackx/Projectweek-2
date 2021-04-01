@@ -7,9 +7,9 @@ public class Rechthoek {
     private Punt linkerBovenHoek;
 
     public Rechthoek(Punt linkerBovenHoek,int breedte,int hoogte){
-        if( breedte <= 0) throw new DomainException();
-        if (hoogte <= 0) throw new DomainException();
-        if (linkerBovenHoek == null) throw new DomainException();
+        if( breedte <= 0) throw new DomainException("Verkeerde invoer");
+        if (hoogte <= 0) throw new DomainException("Verkeerde invoer");
+        if (linkerBovenHoek == null) throw new DomainException("Verkeerde invoer");
         this.breedte = breedte;
         this.hoogte = hoogte;
         this.linkerBovenHoek = linkerBovenHoek;
@@ -28,7 +28,7 @@ public class Rechthoek {
     }
     @Override
     public boolean equals(Object andereRechthoek){
-        if (andereRechthoek == null) throw new DomainException();
+        if (andereRechthoek == null) throw new DomainException("Verkeerde invoer");
         if (andereRechthoek instanceof Rechthoek){
             Rechthoek rechthoek = (Rechthoek) andereRechthoek;
             if(linkerBovenHoek.equals(rechthoek.linkerBovenHoek) && this.hoogte == rechthoek.hoogte && this.breedte == rechthoek.breedte){
