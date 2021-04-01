@@ -108,7 +108,7 @@ public class CirkelApp {
             } catch (NumberFormatException e){
                 invoerY.clear();
                 foutenboodschap.setTitle("Warning");
-                foutenboodschap.setContentText("y coÃ¶rdinaat van middelpunt van de cirkel moet een geheel getal zijn");
+                foutenboodschap.setContentText("y coordinaat van middelpunt van de cirkel moet een geheel getal zijn");
                 foutenboodschap.showAndWait();
 
             }
