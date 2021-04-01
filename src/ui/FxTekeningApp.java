@@ -4,19 +4,17 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import ui.SpelerApp;
 
-public class FixSpelerApp extends Application {
+public class FxTekeningApp extends Application {
+
 
     @Override
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
-        Scene scene = new Scene(root, 300,50);
-
-        new SpelerApp(root);
-
+        Scene scene = new Scene(root);
+        new TekeningApp(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Speler App");
+        primaryStage.setTitle("Almost hangman :) ");
         primaryStage.show();
     }
 

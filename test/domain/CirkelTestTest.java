@@ -2,7 +2,7 @@ package domain;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import gui.Cirkel;
+import domain.Cirkel;
 import org.junit.Test;
 public class CirkelTestTest {
         private Punt punt1 = new Punt(5, 3);

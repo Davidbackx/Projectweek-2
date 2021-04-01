@@ -1,11 +1,12 @@
-package gui;
+package domain;
 
-import domain.DomainException;
-import domain.Punt;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 import java.util.Objects;
 
-public class Cirkel {
+public class Cirkel extends Vorm implements Drawable{
     private Punt middelPunt;
     private int radius;
 
@@ -19,7 +20,7 @@ public class Cirkel {
     }
 
     public void setMiddelPunt(Punt middelPunt) {
-        if (middelPunt == null ) {
+        if (middelPunt == null) {
             throw new DomainException("middelpunt is leeg");
         }
         this.middelPunt = middelPunt;
@@ -30,7 +31,7 @@ public class Cirkel {
     }
 
     public void setRadius(int radius) {
-        if (radius <= 0 ) {
+        if (radius <= 0) {
             throw new DomainException("radius moet positief zijn");
         }
         this.radius = radius;
@@ -51,10 +52,23 @@ public class Cirkel {
     }
 
     @Override
+    public Omhullende getOmhullende() {
+        return null;
+    }
+
+    @Override
     public String toString() {
         return "Cirkel{" +
                 "middelPunt=" + middelPunt +
                 ", radius=" + radius +
                 '}';
+    }
+
+    @Override
+    public void teken(Pane root) {
+        Circle c = new Circle(this.getMiddelPunt().getX(), this.getMiddelPunt().getY(), this.getRadius());
+        c.setFill(this.getKleur());
+        c.setStroke(Color.BLACK);
+        root.getChildren().addAll(c);
     }
 }
