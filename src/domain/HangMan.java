@@ -24,9 +24,7 @@ public class HangMan {
         return hintwoord.getWoord();
     }
 
-    public boolean isGameOver(){
-
-    }
+    public boolean isGameOver(){}
 
     public boolean isGewonnen(){
         return hintwoord.isGeraden();
