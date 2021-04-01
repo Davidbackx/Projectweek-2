@@ -17,7 +17,7 @@ public class Driehoek extends Vorm implements Drawable{
             throw new DomainException("mag niet null zijn");
         }
         if(formALine(hoekpunt1, hoekpunt2, hoekpunt3)) {
-            throw new DomainException("hoekpunten mogen niet op eenzelfde lijn liggen.");
+            throw new DomainException("hoekpunten mogen niet op een zelfde lijn liggen.");
         }
         if (hoekpunt1.equals(hoekpunt2)||hoekpunt2.equals(hoekpunt3)||hoekpunt3.equals(hoekpunt1)) {
             throw new DomainException("hoekpunten mogen niet samenvallen.");

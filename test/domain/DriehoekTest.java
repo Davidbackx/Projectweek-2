@@ -61,7 +61,7 @@ public class DriehoekTest {
     }
 
     @Test
-    public void equals_moet_false_teruggeven_als_parameter_null(){
+    public void equals_moet_false__teruggeven_als_parameter_null(){
         Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
         assertFalse(drieHoek.equals(null));
     }

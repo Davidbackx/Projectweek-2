@@ -38,7 +38,7 @@ public class CirkelTestTest {
     }
 
     @Test
-    public void equals_moet_true_teruggeven_als_begin_en_eindpunt_gelijk_zijn(){
+    public void equals_moet_true__teruggeven_als_begin_en_eindpunt_gelijk_zijn(){
         Cirkel cirkel = new Cirkel(punt1, 8);
         Cirkel zelfdeCirkel = new Cirkel(zelfdeAlsPunt1,8);
         assertTrue(cirkel.equals(zelfdeCirkel));
