@@ -84,7 +84,7 @@ public class RechthoekApp extends Application {
             try{
                 Integer.parseInt(invoerLinkerBovenHoekX.getText());
                 root.add(linkerBovenHoekY,0,teller +1);
-                root.add(invoerLinkerBovenHoekY,1,teller);
+                root.add(invoerLinkerBovenHoekY,1,teller +1);
             }
             catch (NumberFormatException e){
                 invoerLinkerBovenHoekX.clear();
@@ -93,7 +93,7 @@ public class RechthoekApp extends Application {
                 foutenboodschap.showAndWait();
             }
         });
-        invoerLinkerBovenHoekX.setOnAction(eventIngaveY -> {
+        invoerLinkerBovenHoekY.setOnAction(eventIngaveY -> {
             try{
                 Integer.parseInt(invoerLinkerBovenHoekY.getText());
                 root.add(breedte,0,teller +2);
