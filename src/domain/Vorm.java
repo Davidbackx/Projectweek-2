@@ -23,6 +23,6 @@ public abstract class Vorm implements Drawable{
     public abstract Omhullende getOmhullende();
 
     public String toString(){
-        return "Kleur";
+        return "Vorm";
     }
 }

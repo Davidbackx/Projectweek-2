@@ -42,15 +42,15 @@ public class WoordRadenApp {
                 uitvoer = invoerLetter.getCharacters().charAt(0);
                 HintLetter raadLetter = new HintLetter(uitvoer);
                 if(raadWoord.raad(raadLetter.getLetter())){
-                    uitkomst = new Label("Super, doe zo voort");
+                    uitkomst.setText("Super, doe zo voort");
                 }
                 else{
-                    uitkomst = new Label("Helaas volgende keer beter?");
+                    uitkomst.setText("Helaas volgende keer beter?");
                 }
                 woord = new Label(raadWoord.toString());
-                woordZLetters = woord;
+                woordZLetters.setText(raadWoord.toString());
                 root.add(uitkomst,0,1);
-                root.add(woord,0,3);
+                root.add(woordZLetters,0,3);
                 invoerLetter.clear();
             }catch (DomainException e){
                 e.getMessage();

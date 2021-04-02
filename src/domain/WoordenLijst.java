@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class WoordenLijst {
     private ArrayList<String> woorden;
@@ -24,4 +25,9 @@ public class WoordenLijst {
     public int getAantalWoorden() {
         return woorden.size();
     }
+
+    public String getRandom(){
+        return woorden.get(new Random().nextInt(woorden.size()+1));
+    }
+
 }

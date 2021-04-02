@@ -25,7 +25,7 @@ public class HangMan {
     }
 
     public boolean isGameOver(){
-
+        return false;
     }
 
     public boolean isGewonnen(){
